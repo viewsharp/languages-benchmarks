@@ -15,6 +15,12 @@ def sum_even_numbers(bottom: int, top: int) -> int:
     return sum(filter(lambda x: x % 2 == 0, range(bottom, top + 1)))
 ```
 
+##### Variance 1.1. Execution time: 1130ms
+```python
+def sum_even_numbers(bottom: int, top: int) -> int:
+    return sum(x for x in range(bottom, top + 1) if x % 2 == 0)
+```
+
 ##### Variance 2. Execution time: 1160ms
 ```cython
 def sum_even_numbers(bottom: int, top: int) -> int:
@@ -35,14 +41,20 @@ res = sum_even_numbers(2, 20_000_000)
 print(time.time() - start_at)
 ```
 
-##### Variance 1. Execution time: 3815ms
-```cython
+##### Variance 1. Execution time: 3552ms
+```python
 def sum_even_numbers(bottom: int, top: int) -> int:
     return sum(filter(lambda x: x % 2 == 0, range(bottom, top + 1)))
 ```
 
-##### Variance 2. Execution time: 41.9ms
-```cython
+##### Variance 1.1. Execution time: 325ms
+```python
+def sum_even_numbers(bottom: int, top: int) -> int:
+    return sum(x for x in range(bottom, top + 1) if x % 2 == 0)
+```
+
+##### Variance 2. Execution time: 25.8ms
+```python
 def sum_even_numbers(bottom: int, top: int) -> int:
     result = 0
     for x in range(bottom, top + 1):
@@ -63,13 +75,19 @@ res = sum_even_numbers_cy(2, 20_000_000)
 print(time.time() - start_at)
 ```
 
-##### Variance 1. Execution time: 906ms
+##### Variance 1. Execution time: 870ms
 ```cython
 def sum_even_numbers_cy(bottom: int, top: int) -> int:
     return sum(filter(lambda x: x % 2 == 0, range(bottom, top + 1)))
 ```
 
-##### Variance 2. Execution time: 614ms
+##### Variance 1.1. Execution time: 687ms
+```cython
+def sum_even_numbers(bottom: int, top: int) -> int:
+    return sum(x for x in range(bottom, top + 1) if x % 2 == 0)
+```
+
+##### Variance 2. Execution time: 714ms
 ```cython
 def sum_even_numbers_cy(bottom: int, top: int) -> int:
     result = 0
@@ -79,7 +97,7 @@ def sum_even_numbers_cy(bottom: int, top: int) -> int:
     return result
 ```
 
-##### Variance 3. Execution time: 25.0ms
+##### Variance 2.1. Execution time: 30.1ms
 ```cython
 def sum_even_numbers_cy(bottom: int, top: int) -> int:
     cdef long long result = 0
