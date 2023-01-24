@@ -3,6 +3,6 @@ from Cython.Build import cythonize
 
 setup(
     name='Hello world app',
-    ext_modules=cythonize("cython_bench.pyx"),
+    ext_modules=cythonize("bench_ext.pyx", language_level=3),
     zip_safe=False,
 )
